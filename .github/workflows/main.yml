@@ -16,3 +16,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           local_dir: "./testservice.boothlab.id"
           delete: "false"
+          exclude: .git*
