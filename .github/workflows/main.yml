@@ -1,0 +1,18 @@
+name: CI -> Deploy to My website
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Here is the deployment action
+      - name: Upload via FTP by Actions Github
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.SERVER }}
+          user: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          local_dir: "./testservice.boothlab.id"
+          delete: "false"
