@@ -1,7 +1,7 @@
 name: CI -> Deploy to My website
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,3 +16,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           local_dir: "./testservice.boothlab.id"
           delete: "false"
+          exclude: .git*
+            - .git*/**
+            - .github
+            
